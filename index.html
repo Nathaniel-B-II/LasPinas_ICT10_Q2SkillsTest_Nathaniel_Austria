@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non-Metal Elements</title>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <style>
+        :root {
+            --blue: #1d63f0;
+            --green: #249b84;
+            --text: #39404d;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            background: var(--blue);
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--text);
+        }
+
+        .app {
+            width: min(750px, calc(100vw - 36px));
+            background: #ffffff;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(18, 56, 145, 0.20);
+        }
+
+        header {
+            background: var(--blue);
+            color: #ffffff;
+            text-align: center;
+            padding: 22px 20px 14px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 22px;
+            letter-spacing: 1.2px;
+        }
+
+        .subtitle {
+            margin-top: 4px;
+            font-size: 12px;
+        }
+
+        .content { padding: 22px 22px 10px; }
+
+        .instructions {
+            margin: 0 0 16px;
+            padding: 12px 14px;
+            background: #e9f1fb;
+            border-left: 5px solid #72b4ff;
+            border-radius: 4px;
+            font-size: 13px;
+            line-height: 1.35;
+        }
+
+        .instructions strong { display: block; }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .label-icon { color: #1789bc; margin-right: 5px; }
+
+        input {
+            width: 100%;
+            height: 42px;
+            padding: 8px 13px;
+            border: 1px solid #dfe4ea;
+            border-radius: 5px;
+            color: var(--text);
+            font-size: 15px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #66a6ef;
+            box-shadow: 0 0 0 3px rgba(102, 166, 239, 0.16);
+        }
+
+        button {
+            width: 100%;
+            height: 48px;
+            margin-top: 13px;
+            border: 0;
+            border-radius: 5px;
+            background: var(--green);
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        button:hover { background: #208c78; }
+
+        .result-heading {
+            margin: 13px 0 6px;
+            color: #1789bc;
+            font-size: 14px;
+        }
+
+        .result-box {
+            min-height: 91px;
+            padding: 13px 14px;
+            background: #e7f2ff;
+            border: 1px solid #b9d9fb;
+            border-radius: 5px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .result-box:empty { display: none; }
+
+        footer {
+            margin-top: 14px;
+            text-align: center;
+            color: #7d8591;
+            font-size: 11px;
+        }
+
+        footer::before {
+            content: "●";
+            color: #ffc400;
+            margin-right: 7px;
+        }
+
+    </style>
+</head>
+<body>
+    <main class="app">
+        <header>
+            <h1>Non-Metal Elements</h1>
+            <div class="subtitle">Periodic Table Information Finder</div>
+        </header>
+
+        <section class="content">
+            <div class="instructions">
+                <strong>Instructions:</strong>
+                Enter the <b>symbol</b> or name of a non-metal element (Example: H, O, Cl, Ne, Xe).
+            </div>
+
+            <label for="element"><span class="label-icon">⌕</span>Element Name</label>
+            <input id="element" type="text" placeholder="rn" autocomplete="off">
+            <button id="find" py-click="find_element">Check Details</button>
+
+            <h2 class="result-heading">▧ Result</h2>
+            <div id="result" class="result-box" aria-live="polite"></div>
+
+            <footer>Skills Test 2nd Quarter</footer>
+        </section>
+    </main>
+
+    <py-script src="./main.py"></py-script>
+</body>
+</html>
